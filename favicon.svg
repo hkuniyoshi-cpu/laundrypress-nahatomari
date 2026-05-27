@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Background: teal gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" ry="10" fill="url(#bg)"/>
+  <!-- Subtle frame -->
+  <rect x="4" y="4" width="56" height="56" rx="7" ry="7"
+        fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.35"/>
+  <!-- Monogram LP -->
+  <text x="32" y="33"
+        font-family="Outfit, sans-serif"
+        font-size="26"
+        font-weight="700"
+        fill="#ffffff"
+        text-anchor="middle"
+        dominant-baseline="central"
+        letter-spacing="1">LP</text>
+</svg>
