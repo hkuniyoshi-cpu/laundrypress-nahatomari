@@ -127,11 +127,7 @@
         <span data-bind="hero-headline-en">いつでも、<em>清潔に。</em></span>
         <span class="jp" data-bind="hero-headline-jp">泊の街のランドリー。</span>
       </h1>
-      <ul class="hero-sub" data-bind="hero-sublines">
-        <li>192通りの洗濯メニュー。素材と汚れに合わせた、ぴったりの洗い方。</li>
-        <li>布団・カーテン・カーペットも、家庭では洗えない大物まで丸洗い対応。</li>
-        <li>スマホアプリで空き状況確認・キャッシュレス決済まで完結。</li>
-      </ul>
+      <ul class="hero-sub" data-bind="hero-sublines"></ul>
       <div class="hero-meta">
         <span class="chip live">ただいま営業中</span>
         <span class="chip">24h · 年中無休</span>
@@ -174,12 +170,7 @@
     </div>
 
     <div class="about-grid">
-      <div class="about-copy reveal" data-bind="about-paragraphs">
-        <p>ランドリープレス那覇泊店は、那覇市泊2丁目に位置する24時間営業のコインランドリーです。仕事帰りの夜、休日の早朝、台風の翌日──暮らしの「洗いたい」に合わせて、いつでも開いています。</p>
-        <p>店内には小型から布団まで対応する大型洗濯乾燥機、スニーカー専用機、単独乾燥機まで揃え、世界最多の192通りの洗濯メニューから、衣類・素材・好みにあった洗い方を選べます。プロ仕様のクリーニング洗剤と、無添加のしゃぼん玉石鹸の2種類を用意。お肌や香りの好みに合わせてお選びください。</p>
-        <p>明るく清潔な店内で、洗濯のあいだも心地よく。スマホアプリを使えば、来店前に空き状況を確認したり、洗濯終了の通知を受け取ったり、キャッシュレスで支払うことまでできます。</p>
-        <blockquote class="about-quote" data-bind="about-quote">いつでも清潔に。泊の街のランドリー。</blockquote>
-      </div>
+      <div class="about-copy reveal" data-bind="about-paragraphs" style="min-height:180px;"></div>
 
       <div class="about-photos reveal" data-bind="about-photos">
         <div class="ph-card">
@@ -219,38 +210,7 @@
       <p class="section-lead">機械、洗剤、空間、運営。コインランドリーの当たり前を、もう一段上へ。</p>
     </div>
 
-    <div class="features-grid" data-bind="features">
-      <article class="feature-item reveal">
-        <span class="feature-num">01</span>
-        <h3>世界最多192通りの洗濯メニュー</h3>
-        <p class="desc">素材・汚れ・好みに合わせた洗い方が選べます。デリケート衣類から作業着まで、それぞれに最適な工程で。</p>
-      </article>
-      <article class="feature-item reveal">
-        <span class="feature-num">02</span>
-        <h3>プロ仕様洗剤 or しゃぼん玉石鹸</h3>
-        <p class="desc">クリーニング店向けの専門洗剤と、無添加のしゃぼん玉石鹸の2種類から選択。香りや肌へのやさしさで使い分け。</p>
-      </article>
-      <article class="feature-item reveal">
-        <span class="feature-num">03</span>
-        <h3>スニーカー専用洗濯・乾燥機</h3>
-        <p class="desc">大人2足・子ども4足を同時に洗える専用機を完備。靴の中まできれいに、乾燥まで一気通貫で。</p>
-      </article>
-      <article class="feature-item reveal">
-        <span class="feature-num">04</span>
-        <h3>大物洗いに完全対応</h3>
-        <p class="desc">羽毛布団・カーテン・カーペットも、家庭では洗えない大型機で丸洗い。季節の変わり目や引越し前に。</p>
-      </article>
-      <article class="feature-item reveal">
-        <span class="feature-num">05</span>
-        <h3>アプリで空き確認・キャッシュレス</h3>
-        <p class="desc">来店前にスマホで空き状況を確認、終了通知の受け取り、そしてキャッシュレス決済まで対応します。</p>
-      </article>
-      <article class="feature-item reveal">
-        <span class="feature-num">06</span>
-        <h3>24時間365日営業</h3>
-        <p class="desc">深夜・早朝・休日もいつでもご利用いただけます。年中無休、台風の翌日も泊の街で稼働中。</p>
-      </article>
-    </div>
+    <div class="features-grid cms-loading" data-bind="features" style="min-height:340px;"></div>
   </div>
 </section>
 
@@ -270,77 +230,7 @@
       <p class="section-lead">忙しい毎日のなか、洗濯にかける時間を最小限に。あなたの暮らしに合わせてご利用ください。</p>
     </div>
 
-    <div class="foryou-grid" data-bind="forYou">
-      <div class="foryou-card reveal">
-        <div class="img">
-          <div class="fy-icon"><!-- traveler -->
-            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="15" y="30" width="70" height="48" rx="10" fill="rgba(14,165,233,0.12)" stroke="#0EA5E9" stroke-width="2.5"/>
-              <rect x="32" y="16" width="36" height="16" rx="7" stroke="#0EA5E9" stroke-width="2.5"/>
-              <line x1="50" y1="30" x2="50" y2="78" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.35"/>
-              <rect x="41" y="44" width="18" height="14" rx="3" stroke="#0EA5E9" stroke-width="2.2"/>
-              <circle cx="25" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/>
-              <circle cx="75" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/>
-              <path d="M72 12 L84 7 L78 17 Z" fill="#0EA5E9" opacity="0.65"/>
-              <circle cx="68" cy="10" r="2.5" fill="#0EA5E9" opacity="0.4"/>
-            </svg>
-          </div>
-          <span class="label">旅行者・観光客の方</span>
-        </div>
-        <p class="body">旅先でたまった洗濯物を一気に片付けたい方に。24時間対応。</p>
-      </div>
-      <div class="foryou-card reveal">
-        <div class="img">
-          <div class="fy-icon"><!-- solo living / washing machine -->
-            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="18" y="10" width="64" height="70" rx="9" fill="rgba(14,165,233,0.1)" stroke="#0EA5E9" stroke-width="2.5"/>
-              <rect x="18" y="10" width="64" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2.5"/>
-              <circle cx="50" cy="57" r="22" stroke="#0EA5E9" stroke-width="2.5"/>
-              <circle cx="50" cy="57" r="13" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
-              <circle cx="30" cy="19" r="4.5" fill="#0EA5E9" opacity="0.6"/>
-              <circle cx="44" cy="19" r="4.5" fill="rgba(14,165,233,0.3)" stroke="#0EA5E9" stroke-width="1.5"/>
-              <path d="M41 57 Q45.5 52 50 57 Q54.5 62 59 57" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
-            </svg>
-          </div>
-          <span class="label">一人暮らしの方</span>
-        </div>
-        <p class="body">まとめ洗いで時間を効率化。大容量機でまとめて片付けましょう。</p>
-      </div>
-      <div class="foryou-card reveal">
-        <div class="img">
-          <div class="fy-icon"><!-- futon / blanket layers -->
-            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="64" width="80" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2"/>
-              <rect x="17" y="48" width="66" height="16" rx="8" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2"/>
-              <rect x="24" y="32" width="52" height="16" rx="8" fill="rgba(14,165,233,0.11)" stroke="#0EA5E9" stroke-width="2"/>
-              <rect x="31" y="16" width="38" height="16" rx="8" fill="rgba(14,165,233,0.07)" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="5 4"/>
-              <circle cx="84" cy="16" r="4" fill="#0EA5E9" opacity="0.6"/>
-              <circle cx="90" cy="26" r="2.5" fill="#0EA5E9" opacity="0.4"/>
-              <circle cx="87" cy="10" r="1.8" fill="#0EA5E9" opacity="0.5"/>
-            </svg>
-          </div>
-          <span class="label">布団を洗いたい方</span>
-        </div>
-        <p class="body">家では洗えない羽毛布団・毛布もお任せください。</p>
-      </div>
-      <div class="foryou-card reveal">
-        <div class="img">
-          <div class="fy-icon"><!-- late night / moon -->
-            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M40 12 A30 30 0 1 0 40 72 A22 22 0 1 1 40 12Z" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2.5"/>
-              <circle cx="76" cy="18" r="5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.8"/>
-              <circle cx="86" cy="34" r="3.5" fill="#0EA5E9" opacity="0.5"/>
-              <circle cx="74" cy="46" r="6.5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.55"/>
-              <circle cx="84" cy="60" r="4" stroke="#0EA5E9" stroke-width="1.5" opacity="0.4"/>
-              <path d="M68 74 L75 74 L68 83 L75 83" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-              <path d="M76 66 L81 66 L76 73 L81 73" stroke="#0EA5E9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-            </svg>
-          </div>
-          <span class="label">深夜に洗濯したい方</span>
-        </div>
-        <p class="body">仕事帰りの夜遅くでも、早朝でも24時間ご利用いただけます。</p>
-      </div>
-    </div>
+    <div class="foryou-grid" data-bind="forYou" style="min-height:280px;"></div>
   </div>
 </section>
 
@@ -882,6 +772,7 @@ function applyFeatures(items) {
   if (!items || !items.length) return;
   const wrap = document.querySelector('[data-bind="features"]');
   if (!wrap) return;
+  wrap.classList.remove('cms-loading');
   wrap.innerHTML = items.map((f, i) => `
     <article class="feature-item reveal">
       <span class="feature-num">${esc(f.num || String(i + 1).padStart(2, '0'))}</span>
