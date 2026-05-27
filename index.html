@@ -102,13 +102,21 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="bubble-field" aria-hidden="true">
-    <span class="bb" style="left:6%; width:32px; height:32px; animation-duration:24s; animation-delay:-3s;"></span>
-    <span class="bb" style="left:18%; width:14px; height:14px; animation-duration:20s; animation-delay:-8s;"></span>
-    <span class="bb" style="left:32%; width:46px; height:46px; animation-duration:30s; animation-delay:-14s;"></span>
-    <span class="bb" style="left:48%; width:18px; height:18px; animation-duration:22s; animation-delay:-2s;"></span>
-    <span class="bb" style="left:64%; width:36px; height:36px; animation-duration:28s; animation-delay:-11s;"></span>
-    <span class="bb" style="left:78%; width:22px; height:22px; animation-duration:26s; animation-delay:-6s;"></span>
-    <span class="bb" style="left:91%; width:14px; height:14px; animation-duration:18s; animation-delay:-16s;"></span>
+    <span class="bb" style="left:3%;  width:44px; height:44px; animation-duration:22s; animation-delay:-1s;"></span>
+    <span class="bb" style="left:9%;  width:18px; height:18px; animation-duration:16s; animation-delay:-9s;"></span>
+    <span class="bb" style="left:16%; width:70px; height:70px; animation-duration:34s; animation-delay:-19s;"></span>
+    <span class="bb" style="left:22%; width:24px; height:24px; animation-duration:19s; animation-delay:-5s;"></span>
+    <span class="bb" style="left:29%; width:14px; height:14px; animation-duration:15s; animation-delay:-12s;"></span>
+    <span class="bb" style="left:36%; width:56px; height:56px; animation-duration:28s; animation-delay:-7s;"></span>
+    <span class="bb" style="left:43%; width:20px; height:20px; animation-duration:18s; animation-delay:-3s;"></span>
+    <span class="bb" style="left:50%; width:36px; height:36px; animation-duration:25s; animation-delay:-15s;"></span>
+    <span class="bb" style="left:57%; width:80px; height:80px; animation-duration:38s; animation-delay:-22s;"></span>
+    <span class="bb" style="left:63%; width:16px; height:16px; animation-duration:14s; animation-delay:-8s;"></span>
+    <span class="bb" style="left:69%; width:42px; height:42px; animation-duration:26s; animation-delay:-11s;"></span>
+    <span class="bb" style="left:76%; width:22px; height:22px; animation-duration:20s; animation-delay:-4s;"></span>
+    <span class="bb" style="left:83%; width:60px; height:60px; animation-duration:32s; animation-delay:-17s;"></span>
+    <span class="bb" style="left:89%; width:14px; height:14px; animation-duration:17s; animation-delay:-6s;"></span>
+    <span class="bb" style="left:95%; width:34px; height:34px; animation-duration:23s; animation-delay:-13s;"></span>
   </div>
 
   <div class="hero-inner">
@@ -301,8 +309,15 @@
 </section>
 
 <!-- ============ FOR YOU ============ -->
-<section class="foryou tinted" id="foryou">
-  <div class="wrap">
+<section class="foryou tinted" id="foryou" style="position:relative;overflow:hidden;">
+  <div class="bubble-field" aria-hidden="true" style="opacity:.4;">
+    <span class="bb" style="left:5%;  width:28px; height:28px; animation-duration:20s; animation-delay:-4s;"></span>
+    <span class="bb" style="left:25%; width:48px; height:48px; animation-duration:30s; animation-delay:-12s;"></span>
+    <span class="bb" style="left:50%; width:20px; height:20px; animation-duration:18s; animation-delay:-7s;"></span>
+    <span class="bb" style="left:72%; width:60px; height:60px; animation-duration:34s; animation-delay:-2s;"></span>
+    <span class="bb" style="left:90%; width:16px; height:16px; animation-duration:16s; animation-delay:-9s;"></span>
+  </div>
+  <div class="wrap" style="position:relative;z-index:1;">
     <div class="section-head">
       <span class="eyebrow">FOR YOU</span>
       <h2 class="section-title">こんな方に、<em>選ばれています。</em></h2>
@@ -312,31 +327,72 @@
     <div class="foryou-grid" data-bind="forYou">
       <div class="foryou-card reveal">
         <div class="img">
-          <div class="ph-placeholder"><span>共働きファミリー</span></div>
-          <span class="label">共働きファミリー</span>
+          <div class="fy-icon"><!-- traveler -->
+            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="15" y="30" width="70" height="48" rx="10" fill="rgba(14,165,233,0.12)" stroke="#0EA5E9" stroke-width="2.5"/>
+              <rect x="32" y="16" width="36" height="16" rx="7" stroke="#0EA5E9" stroke-width="2.5"/>
+              <line x1="50" y1="30" x2="50" y2="78" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.35"/>
+              <rect x="41" y="44" width="18" height="14" rx="3" stroke="#0EA5E9" stroke-width="2.2"/>
+              <circle cx="25" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/>
+              <circle cx="75" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/>
+              <path d="M72 12 L84 7 L78 17 Z" fill="#0EA5E9" opacity="0.65"/>
+              <circle cx="68" cy="10" r="2.5" fill="#0EA5E9" opacity="0.4"/>
+            </svg>
+          </div>
+          <span class="label">旅行者・観光客の方</span>
         </div>
-        <p class="body">週末の大物洗いを2時間で。お子様の運動着もまとめて。</p>
+        <p class="body">旅先でたまった洗濯物を一気に片付けたい方に。24時間対応。</p>
       </div>
       <div class="foryou-card reveal">
         <div class="img">
-          <div class="ph-placeholder"><span>ひとり暮らし</span></div>
-          <span class="label">ひとり暮らし</span>
+          <div class="fy-icon"><!-- solo living / washing machine -->
+            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="18" y="10" width="64" height="70" rx="9" fill="rgba(14,165,233,0.1)" stroke="#0EA5E9" stroke-width="2.5"/>
+              <rect x="18" y="10" width="64" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2.5"/>
+              <circle cx="50" cy="57" r="22" stroke="#0EA5E9" stroke-width="2.5"/>
+              <circle cx="50" cy="57" r="13" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
+              <circle cx="30" cy="19" r="4.5" fill="#0EA5E9" opacity="0.6"/>
+              <circle cx="44" cy="19" r="4.5" fill="rgba(14,165,233,0.3)" stroke="#0EA5E9" stroke-width="1.5"/>
+              <path d="M41 57 Q45.5 52 50 57 Q54.5 62 59 57" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+            </svg>
+          </div>
+          <span class="label">一人暮らしの方</span>
         </div>
-        <p class="body">梅雨や台風の日も、清潔な部屋着で快適に過ごせます。</p>
+        <p class="body">まとめ洗いで時間を効率化。大容量機でまとめて片付けましょう。</p>
       </div>
       <div class="foryou-card reveal">
         <div class="img">
-          <div class="ph-placeholder"><span>那覇への旅行者</span></div>
-          <span class="label">那覇への旅行者</span>
+          <div class="fy-icon"><!-- futon / blanket layers -->
+            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="64" width="80" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2"/>
+              <rect x="17" y="48" width="66" height="16" rx="8" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2"/>
+              <rect x="24" y="32" width="52" height="16" rx="8" fill="rgba(14,165,233,0.11)" stroke="#0EA5E9" stroke-width="2"/>
+              <rect x="31" y="16" width="38" height="16" rx="8" fill="rgba(14,165,233,0.07)" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="5 4"/>
+              <circle cx="84" cy="16" r="4" fill="#0EA5E9" opacity="0.6"/>
+              <circle cx="90" cy="26" r="2.5" fill="#0EA5E9" opacity="0.4"/>
+              <circle cx="87" cy="10" r="1.8" fill="#0EA5E9" opacity="0.5"/>
+            </svg>
+          </div>
+          <span class="label">布団を洗いたい方</span>
         </div>
-        <p class="body">国際通りからほど近く。長旅の途中に衣類リセットを。</p>
+        <p class="body">家では洗えない羽毛布団・毛布もお任せください。</p>
       </div>
       <div class="foryou-card reveal">
         <div class="img">
-          <div class="ph-placeholder"><span>季節の大物洗い</span></div>
-          <span class="label">季節の大物洗い</span>
+          <div class="fy-icon"><!-- late night / moon -->
+            <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 12 A30 30 0 1 0 40 72 A22 22 0 1 1 40 12Z" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2.5"/>
+              <circle cx="76" cy="18" r="5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.8"/>
+              <circle cx="86" cy="34" r="3.5" fill="#0EA5E9" opacity="0.5"/>
+              <circle cx="74" cy="46" r="6.5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.55"/>
+              <circle cx="84" cy="60" r="4" stroke="#0EA5E9" stroke-width="1.5" opacity="0.4"/>
+              <path d="M68 74 L75 74 L68 83 L75 83" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+              <path d="M76 66 L81 66 L76 73 L81 73" stroke="#0EA5E9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            </svg>
+          </div>
+          <span class="label">深夜に洗濯したい方</span>
         </div>
-        <p class="body">羽毛布団・毛布・カーペットを家庭の手間なく丸洗い。</p>
+        <p class="body">仕事帰りの夜遅くでも、早朝でも24時間ご利用いただけます。</p>
       </div>
     </div>
   </div>
@@ -821,13 +877,13 @@ let _gbpUrl = '';
 /* ---- applySettings ---- */
 function applySettings(s) {
   if (!s) return;
-  const tel    = s['電話番号'];
-  const en     = s['英語店名'];
-  const addr   = s['住所（全体）'];
-  const hours  = s['営業時間（表示用）'];
-  const closed = s['定休日'];
-  const cp     = s['コピーライト'];
-  const cat    = s['キャッチコピー（ラベル）'];
+  const tel    = s.tel    || s['電話番号'];
+  const en     = s.siteNameEn || s['英語店名'];
+  const addr   = s.address   || s['住所（全体）'];
+  const hours  = s.hoursDisplay || s['営業時間（表示用）'];
+  const closed = s.closed  || s['定休日'];
+  const cp     = s.copyright || s['コピーライト'];
+  const cat    = s.tagline || s['キャッチコピー（ラベル）'];
 
   if (tel) {
     document.querySelectorAll('[data-bind="tel"]').forEach(el => el.textContent = tel);
@@ -948,6 +1004,21 @@ function applyFeatures(items) {
   observe(wrap, '.reveal');
 }
 
+/* ---- For You SVG icon library ---- */
+const _FY_SVG = {
+  travel: `<svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="30" width="70" height="48" rx="10" fill="rgba(14,165,233,0.12)" stroke="#0EA5E9" stroke-width="2.5"/><rect x="32" y="16" width="36" height="16" rx="7" stroke="#0EA5E9" stroke-width="2.5"/><line x1="50" y1="30" x2="50" y2="78" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.35"/><rect x="41" y="44" width="18" height="14" rx="3" stroke="#0EA5E9" stroke-width="2.2"/><circle cx="25" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/><circle cx="75" cy="80" r="5" fill="#0EA5E9" opacity="0.45"/><path d="M72 12 L84 7 L78 17 Z" fill="#0EA5E9" opacity="0.65"/><circle cx="68" cy="10" r="2.5" fill="#0EA5E9" opacity="0.4"/></svg>`,
+  wash:   `<svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="18" y="10" width="64" height="70" rx="9" fill="rgba(14,165,233,0.1)" stroke="#0EA5E9" stroke-width="2.5"/><rect x="18" y="10" width="64" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2.5"/><circle cx="50" cy="57" r="22" stroke="#0EA5E9" stroke-width="2.5"/><circle cx="50" cy="57" r="13" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/><circle cx="30" cy="19" r="4.5" fill="#0EA5E9" opacity="0.6"/><circle cx="44" cy="19" r="4.5" fill="rgba(14,165,233,0.3)" stroke="#0EA5E9" stroke-width="1.5"/><path d="M41 57 Q45.5 52 50 57 Q54.5 62 59 57" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" opacity="0.75"/></svg>`,
+  futon:  `<svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="64" width="80" height="18" rx="9" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" stroke-width="2"/><rect x="17" y="48" width="66" height="16" rx="8" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2"/><rect x="24" y="32" width="52" height="16" rx="8" fill="rgba(14,165,233,0.11)" stroke="#0EA5E9" stroke-width="2"/><rect x="31" y="16" width="38" height="16" rx="8" fill="rgba(14,165,233,0.07)" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="5 4"/><circle cx="84" cy="16" r="4" fill="#0EA5E9" opacity="0.6"/><circle cx="90" cy="26" r="2.5" fill="#0EA5E9" opacity="0.4"/><circle cx="87" cy="10" r="1.8" fill="#0EA5E9" opacity="0.5"/></svg>`,
+  night:  `<svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 12 A30 30 0 1 0 40 72 A22 22 0 1 1 40 12Z" fill="rgba(14,165,233,0.15)" stroke="#0EA5E9" stroke-width="2.5"/><circle cx="76" cy="18" r="5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.8"/><circle cx="86" cy="34" r="3.5" fill="#0EA5E9" opacity="0.5"/><circle cx="74" cy="46" r="6.5" stroke="#0EA5E9" stroke-width="1.8" opacity="0.55"/><circle cx="84" cy="60" r="4" stroke="#0EA5E9" stroke-width="1.5" opacity="0.4"/><path d="M68 74 L75 74 L68 83 L75 83" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><path d="M76 66 L81 66 L76 73 L81 73" stroke="#0EA5E9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/></svg>`,
+};
+function _fyIcon(label) {
+  const l = String(label || '').toLowerCase();
+  if (l.includes('旅') || l.includes('観光') || l.includes('travel')) return _FY_SVG.travel;
+  if (l.includes('布団') || l.includes('毛布') || l.includes('futon')) return _FY_SVG.futon;
+  if (l.includes('深夜') || l.includes('夜') || l.includes('night'))  return _FY_SVG.night;
+  return _FY_SVG.wash; // default: washing machine
+}
+
 /* ---- applyForYou ---- */
 function applyForYou(items) {
   if (!items || !items.length) return;
@@ -958,7 +1029,7 @@ function applyForYou(items) {
       <div class="img">
         ${f.image
           ? '<img src="' + esc(f.image) + '" alt="' + esc(f.label || '') + '" loading="lazy">'
-          : '<div class="ph-placeholder"><span>' + esc(f.label || '') + '</span></div>'}
+          : '<div class="fy-icon">' + _fyIcon(f.label) + '</div>'}
         <span class="label">${esc(f.label || '')}</span>
       </div>
       <p class="body">${esc(f.caption || '')}</p>
@@ -1038,23 +1109,24 @@ function applyBlog(items) {
 function applyAccess(a) {
   if (!a) return;
   const set = (k, v) => document.querySelectorAll('[data-bind="' + k + '"]').forEach(el => { if (v) el.textContent = v; });
-  set('address', a['住所']);
-  set('hours-summary', a['営業時間（表示用）']);
-  set('closed', a['定休日']);
-  set('station', a['最寄り駅']);
-  set('parking', a['駐車場']);
-  if (a['電話番号']) {
+  set('address',      a.address  || a['住所']);
+  set('hours-summary',a.hoursAll || a.hoursDisplay || a['営業時間（表示用）']);
+  set('closed',       a.closed   || a['定休日']);
+  set('station',      a.station  || a['最寄り駅']);
+  set('parking',      a.parking  || a['駐車場']);
+  const tel = a.tel || a['電話番号'];
+  if (tel) {
     const td = document.querySelector('[data-bind="tel-row"]');
     if (td) {
-      const num = String(a['電話番号']).replace(/[^0-9]/g, '');
-      td.innerHTML = '<a href="tel:' + num + '" style="color:var(--teal-600); text-decoration:none; font-weight:600; font-family:var(--font-num);">' + esc(a['電話番号']) + '</a>';
+      const num = String(tel).replace(/[^0-9]/g, '');
+      td.innerHTML = '<a href="tel:' + num + '" style="color:var(--teal-600); text-decoration:none; font-weight:600; font-family:var(--font-num);">' + esc(tel) + '</a>';
     }
   }
-  if (a['地図埋め込みURL（Googleマップの共有リンク）'] || a.mapUrl) {
-    const url = a['地図埋め込みURL（Googleマップの共有リンク）'] || a.mapUrl;
+  const mapUrl = a.mapEmbed || a['地図埋め込みURL（Googleマップの共有リンク）'] || a.mapUrl;
+  if (mapUrl) {
     const map = document.querySelector('[data-bind="map"]');
     if (map) {
-      map.innerHTML = '<iframe src="' + esc(url) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="店舗地図"></iframe>';
+      map.innerHTML = '<iframe src="' + esc(mapUrl) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="店舗地図"></iframe>';
     }
   }
   if (a['営業時間（各日）'] && typeof a['営業時間（各日）'] === 'object') {
@@ -1127,30 +1199,34 @@ function applyFAQ(items) {
 /* ---- applyCTA ---- */
 function applyCTA(c) {
   if (!c) return;
+  const h1 = c.headline1 || c['見出し1行目'];
+  const h2 = c.headline2 || c['見出し2行目（斜体装飾）'];
   const h = document.querySelector('[data-bind="cta-headline"]');
-  if (h && (c['見出し1行目'] || c['見出し2行目（斜体装飾）'])) {
+  if (h && (h1 || h2)) {
     h.innerHTML =
-      (c['見出し1行目'] ? '<span>' + esc(c['見出し1行目']) + '</span><br>' : '') +
-      (c['見出し2行目（斜体装飾）'] ? '<span class="it">' + esc(c['見出し2行目（斜体装飾）']) + '</span>' : '');
+      (h1 ? '<span>' + esc(h1) + '</span><br>' : '') +
+      (h2 ? '<span class="it">' + esc(h2) + '</span>' : '');
   }
+  const subText = c.subText || c['サブテキスト'];
   const note = document.querySelector('[data-bind="cta-note"]');
-  if (note && c['サブテキスト']) note.textContent = c['サブテキスト'];
+  if (note && subText) note.textContent = subText;
 
+  const b1txt = c.btn1Text || c['ボタン1テキスト'];
+  const b1url = c.btn1Url  || c['ボタン1リンク'];
   const b1 = document.querySelector('[data-bind="cta-btn1"]');
-  if (b1 && c['ボタン1テキスト']) {
-    b1.textContent = c['ボタン1テキスト'];
-    if (c['ボタン1リンク']) b1.setAttribute('href', c['ボタン1リンク']);
-  }
+  if (b1 && b1txt) { b1.textContent = b1txt; if (b1url) b1.setAttribute('href', b1url); }
+
+  const b2txt = c.btn2Text || c['ボタン2テキスト'];
+  const b2url = c.btn2Url  || c['ボタン2リンク'];
   const b2 = document.querySelector('[data-bind="cta-btn2"]');
-  if (b2 && c['ボタン2テキスト']) {
-    b2.textContent = c['ボタン2テキスト'];
-    if (c['ボタン2リンク']) b2.setAttribute('href', c['ボタン2リンク']);
-  }
+  if (b2 && b2txt) { b2.textContent = b2txt; if (b2url) b2.setAttribute('href', b2url); }
+
+  const footerDesc = c.footerDesc || c['フッター説明文'];
   const fd = document.querySelector('[data-bind="footer-desc"]');
-  if (fd && c['フッター説明文']) fd.textContent = c['フッター説明文'];
-  if (c['コピーライト']) {
-    document.querySelectorAll('[data-bind="copyright"]').forEach(el => el.textContent = c['コピーライト']);
-  }
+  if (fd && footerDesc) fd.textContent = footerDesc;
+
+  const cp = c.copyright || c['コピーライト'];
+  if (cp) document.querySelectorAll('[data-bind="copyright"]').forEach(el => el.textContent = cp);
 }
 
 /* ============================================================
@@ -1179,6 +1255,37 @@ fetch(GAS_URL)
     const wall = document.querySelector('#blog .wall');
     if (wall) wall.classList.remove('cms-loading');
   });
+
+/* -------- Cursor Bubble Effect -------- */
+(function () {
+  let lastT = 0;
+  const palettes = [
+    'radial-gradient(circle at 30% 28%, rgba(255,255,255,.98) 0%, rgba(186,230,253,.65) 50%, rgba(14,165,233,.25) 100%)',
+    'radial-gradient(circle at 30% 28%, rgba(255,255,255,.98) 0%, rgba(233,213,255,.65) 50%, rgba(139,92,246,.25) 100%)',
+    'radial-gradient(circle at 30% 28%, rgba(255,255,255,.98) 0%, rgba(254,215,170,.65) 50%, rgba(249,115,22,.2) 100%)',
+    'radial-gradient(circle at 30% 28%, rgba(255,255,255,.98) 0%, rgba(187,247,208,.65) 50%, rgba(34,197,94,.2) 100%)',
+  ];
+  let ci = 0;
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastT < 85) return;
+    lastT = now;
+    const el = document.createElement('div');
+    el.className = 'cursor-bubble';
+    const sz = 10 + Math.random() * 24;
+    const dx = (Math.random() - .5) * 16;
+    el.style.cssText = [
+      'left:'  + (e.clientX - sz / 2) + 'px',
+      'top:'   + (e.clientY - sz / 2) + 'px',
+      'width:' + sz + 'px',
+      'height:'+ sz + 'px',
+      'background:' + palettes[ci++ % palettes.length],
+      '--dx:' + dx + 'px',
+    ].join(';');
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove(), { once: true });
+  });
+})();
 </script>
 
 </body>
