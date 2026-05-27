@@ -171,29 +171,33 @@ section.sky     { background: var(--sky); }
   position: absolute;
   bottom: -80px;
   border-radius: 50%;
+  /* 白背景でも映える — 青みのある石鹸玉スタイル */
   background:
-    radial-gradient(circle at 28% 26%, rgba(255,255,255,1) 0%, transparent 22%),
-    radial-gradient(circle at 68% 72%, rgba(199,232,255,.75) 0%, transparent 28%),
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.95) 0%, transparent 20%),
+    radial-gradient(circle at 68% 70%, rgba(14,165,233,.28) 0%, transparent 32%),
     radial-gradient(circle at 50% 50%,
-      rgba(255,255,255,.45) 0%,
-      rgba(186,230,253,.55) 22%,
-      rgba(167,139,250,.22) 48%,
-      rgba(249,168,212,.18) 72%,
-      transparent 100%
+      rgba(186,230,253,.85) 0%,
+      rgba(125,211,252,.65) 28%,
+      rgba(167,139,250,.42) 55%,
+      rgba(249,168,212,.32) 80%,
+      rgba(14,165,233,.18) 100%
     );
-  border: 1.5px solid rgba(255,255,255,.82);
+  border: 2px solid rgba(14,165,233,.5);
   box-shadow:
-    inset 0 0 14px rgba(255,255,255,.65),
-    0 0 10px rgba(14,165,233,.22);
+    inset 0 0 16px rgba(255,255,255,.85),
+    inset 0 0 32px rgba(14,165,233,.18),
+    0 0 18px rgba(14,165,233,.35),
+    0 6px 24px rgba(14,165,233,.2);
   opacity: 0;
+  will-change: transform, opacity;
   animation: float-up linear infinite;
 }
 @keyframes float-up {
-  0%   { transform: translateY(0) translateX(0) scale(.55); opacity: 0; }
-  7%   { opacity: .88; }
-  48%  { transform: translateY(-52vh) translateX(28px) scale(1.08); opacity: .82; }
-  88%  { opacity: .45; }
-  100% { transform: translateY(-115vh) translateX(-18px) scale(.8); opacity: 0; }
+  0%   { transform: translateY(0) translateX(0) scale(.5);  opacity: 0; }
+  6%   { opacity: .95; }
+  45%  { transform: translateY(-50vh) translateX(30px) scale(1.1); opacity: .9; }
+  90%  { opacity: .55; }
+  100% { transform: translateY(-115vh) translateX(-20px) scale(.8); opacity: 0; }
 }
 
 /* ---------- Reveal on scroll ---------- */
@@ -1584,6 +1588,12 @@ dialog.legal-modal::backdrop {
   .cta .actions .btn { width: 100%; justify-content: center; padding: 16px 20px; }
   .cta h2 { overflow-wrap: break-word; word-break: break-all; }
   .cta .cta-note { font-size: 13px; overflow-wrap: break-word; }
+}
+
+/* モバイルではバブルを間引いてパフォーマンス確保 */
+@media (max-width: 600px) {
+  .bubble-field .bb:nth-child(n+8) { display: none; }
+  .bubble-field .bb { animation-duration: 18s !important; }
 }
 
 /* ============================================================
