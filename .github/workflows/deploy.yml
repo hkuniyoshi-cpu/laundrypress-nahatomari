@@ -14,7 +14,7 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           # ↓ Netlify の Site ID（Project configuration で確認）
-          NETLIFY_SITE_ID: <NETLIFY_SITE_ID をここに>
+          NETLIFY_SITE_ID: 2a514d54-0c64-436d-814c-5674a2847430
         run: |
           # ⚠️ 全ファイルをZIP化（blog/ サブディレクトリも含む）
           # 固定リスト指定だと Make が後から作成したブログページが 404 になる
