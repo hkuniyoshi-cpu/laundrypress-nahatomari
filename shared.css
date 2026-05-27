@@ -559,37 +559,26 @@ section.sky     { background: var(--sky); }
   font-family: var(--font-head);
   font-weight: 700;
   font-size: 11px;
-  line-height: 1.4;
+  line-height: 1.3;
   letter-spacing: .12em;
-  /* バッジ外枠の回転を打ち消してテキストを常に正立させる */
-  animation: spin-reverse 26s linear infinite;
-}
-.hero-badge .badge-new {
-  display: block;
-  font-size: 9px;
-  letter-spacing: .2em;
-  color: var(--teal);
-  font-weight: 800;
 }
 .hero-badge .big {
   display: block;
   font-family: var(--font-num);
   font-weight: 800;
-  font-size: 20px;
-  letter-spacing: .04em;
+  font-size: 26px;
+  letter-spacing: 0;
   color: var(--teal);
   margin-top: 2px;
 }
-@keyframes spin         { to { transform: rotate(360deg); } }
-@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 900px) {
   .hero { padding: 110px 0 70px; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { grid-template-rows: 180px 140px; }
   .hero-badge { width: 84px; height: 84px; right: 4px; top: -16px; }
-  .hero-badge .inner { font-size: 10px; }
-  .hero-badge .big { font-size: 15px; }
+  .hero-badge .big { font-size: 20px; }
 }
 
 /* ============================================================
