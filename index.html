@@ -201,9 +201,9 @@
 <section class="menu tinted" id="menu">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:8px;">
-      <span class="eyebrow">MENU</span>
-      <h2 class="section-title">ご利用<em>メニュー</em></h2>
-      <p class="section-lead">用途と量に合わせて、最適なコースをお選びいただけます。</p>
+      <span class="eyebrow">PRICE / MENU</span>
+      <h2 class="section-title">ご利用<em>メニュー</em>と料金</h2>
+      <p class="section-lead">用途・量・素材に合わせてお選びください。価格はすべて税込です。</p>
     </div>
 
     <div class="menu-grid cms-loading" data-bind="menu" style="min-height:320px;"></div>
@@ -843,11 +843,17 @@ const MENU_ICONS = {
 
 function _menuIcon(name) {
   const n = String(name || '').toLowerCase();
-  if (n.includes('布団') || n.includes('毛布'))          return MENU_ICONS.futon;
-  if (n.includes('スニーカー'))                           return MENU_ICONS.sneaker;
-  if ((n.includes('乾燥') && !n.includes('洗濯')) || n.includes('乾燥のみ')) return MENU_ICONS.dryer;
-  if (n.includes('大'))                                  return MENU_ICONS.washer_l;
-  if (n.includes('洗濯のみ'))                            return MENU_ICONS.wash_only;
+  // 靴系
+  if (n.includes('靴') || n.includes('スニーカー'))              return MENU_ICONS.sneaker;
+  // 乾燥機のみ（洗濯乾燥機は除外）
+  if (n.includes('乾燥') && !n.includes('洗濯'))                 return MENU_ICONS.dryer;
+  // XL・布団・毛布
+  if (n.includes('xl') || n.includes('布団') || n.includes('毛布')) return MENU_ICONS.futon;
+  // L機（洗濯乾燥機L）
+  if (n.match(/ l[（(]/) || n.includes('18kg') || n.includes('大')) return MENU_ICONS.washer_l;
+  // 洗濯機のみ（乾燥なし）
+  if (n.includes('洗濯機') && !n.includes('乾燥'))               return MENU_ICONS.wash_only;
+  // デフォルト（M機 etc）
   return MENU_ICONS.washer_s;
 }
 
