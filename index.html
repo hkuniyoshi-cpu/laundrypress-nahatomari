@@ -816,6 +816,7 @@ document.querySelectorAll('dialog.legal-modal').forEach(dialog => {
    CMS  —  GAS Web App
    ============================================================ */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbxq0wb7BTpATe8zK-3YQLk-A5PTjFoPcZqE7u88eH3knw3QcTmjBDZ69uhmSYyNTaA/exec';
+let _gbpUrl = '';
 
 /* ---- applySettings ---- */
 function applySettings(s) {
@@ -839,6 +840,9 @@ function applySettings(s) {
   if (hours)  document.querySelectorAll('[data-bind="hours-summary"]').forEach(el => el.textContent = hours);
   if (closed) document.querySelectorAll('[data-bind="closed"]').forEach(el => el.textContent = closed);
   if (cp)     document.querySelectorAll('[data-bind="copyright"]').forEach(el => el.textContent = cp);
+
+  /* GBP URL を保存（applyReviews で使用） */
+  _gbpUrl = s.gbpUrl || s['gbpUrl'] || '';
 
   /* SNS セクション表示制御
      Sheets の settings タブに  snsVisible | true  行を追加すると表示復帰。
@@ -917,13 +921,8 @@ function applyMenu(items) {
   const wrap = document.querySelector('[data-bind="menu"]');
   if (!wrap) return;
   wrap.innerHTML = items.map(m => `
-    <article class="menu-card reveal">
+    <article class="menu-card menu-card--noimg reveal">
       ${m.bestSeller ? '<span class="best">おすすめ</span>' : ''}
-      <div class="img">
-        ${m.image
-          ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name || '') + '" loading="lazy">'
-          : '<div class="ph-placeholder"><span>' + esc(m.name || 'メニュー') + '</span></div>'}
-      </div>
       <div class="body">
         <h3>${esc(m.name || '')}</h3>
         <p class="desc">${esc(m.desc || '')}</p>
@@ -973,7 +972,8 @@ function applyReviews(items) {
   if (!items || !items.length) return;
   const wrap = document.querySelector('[data-bind="reviews"]');
   if (!wrap) return;
-  wrap.innerHTML = items.map(r => {
+  const show = items.slice(0, 5);
+  const cards = show.map(r => {
     const n = Math.max(0, Math.min(5, Number(r.stars) || 0));
     const stars = '★'.repeat(n) + '<span class="empty">' + '★'.repeat(5 - n) + '</span>';
     return `
@@ -987,6 +987,16 @@ function applyReviews(items) {
       </article>
     `;
   }).join('');
+  const ctaCard = `
+    <article class="review-card review-cta reveal">
+      <div class="review-stars">★ ★ ★ ★ ★</div>
+      <p class="review-cta-text">他のクチコミも<br>Googleでご覧いただけます</p>
+      <a class="review-cta-btn" href="${esc(_gbpUrl || '#')}" target="_blank" rel="noopener">
+        GOOGLEで見る →
+      </a>
+    </article>
+  `;
+  wrap.innerHTML = cards + ctaCard;
   observe(wrap, '.reveal');
 }
 
