@@ -706,6 +706,16 @@ section.sky     { background: var(--sky); }
 @media (max-width: 900px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .menu-grid { grid-template-columns: 1fr; } }
 
+/* ---- Image-less menu card variant ---- */
+.menu-card--noimg { flex-direction: column; }
+.menu-card--noimg .body { padding: 28px 24px 28px; flex: 1; }
+.menu-card--noimg .best {
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+}
+.menu-card--noimg h3 { font-size: 17px; }
+
 /* ============================================================
    FEATURES
    ============================================================ */
@@ -891,6 +901,41 @@ section.sky     { background: var(--sky); }
 }
 @media (max-width: 900px) { .reviews-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+/* ---- Review CTA card (6th slot — Google link) ---- */
+.review-card.review-cta {
+  background: linear-gradient(140deg, var(--sky-100) 0%, #fff 100%);
+  border: 2px solid var(--sky-300);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+.review-card.review-cta::after { display: none; }
+.review-cta-text {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.review-cta-btn {
+  display: inline-block;
+  padding: 11px 28px;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.review-cta-btn:hover {
+  background: var(--teal-700);
+  transform: translateY(-2px);
+}
 
 /* ============================================================
    BLOG (.wall)
