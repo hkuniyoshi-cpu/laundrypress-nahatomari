@@ -677,7 +677,6 @@ function applyHero(h) {
           ${p.image
             ? '<img src="' + esc(p.image) + '" alt="' + esc(p.caption || '') + '" loading="lazy">'
             : '<div class="ph-placeholder"><span>' + esc(p.caption || '写真') + '</span></div>'}
-          ${p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : ''}
         </div>
       `).join('');
       if (badge) wrap.appendChild(badge);
@@ -714,7 +713,6 @@ function applyAbout(a) {
           ${p.image
             ? '<img src="' + esc(p.image) + '" alt="' + esc(p.caption || '') + '" loading="lazy">'
             : '<div class="ph-placeholder"><span>' + esc(p.caption || '写真') + '</span></div>'}
-          ${p.caption ? '<span class="caption">' + esc(p.caption) + '</span>' : ''}
         </div>
       `).join('');
     }
