@@ -355,29 +355,7 @@
       <p class="section-lead">専用アプリと会員サービスで、もっと便利に、もっとお得に。</p>
     </div>
 
-    <div class="app-grid" data-bind="delivery">
-      <div class="app-card">
-        <span class="badge-type">APP</span>
-        <h3>アプリで<br>空き確認・通知</h3>
-        <p class="desc">来店前にスマホで空き状況を確認。洗濯終了通知で、待ち時間も無駄になりません。App Store・Google Playで「ランドリープレス」を検索。</p>
-        <a href="#" class="btn btn-primary">アプリをダウンロード</a>
-        <div class="deco"></div>
-      </div>
-      <div class="app-card">
-        <span class="badge-type">PAYMENT</span>
-        <h3>キャッシュレス<br>決済対応</h3>
-        <p class="desc">現金に加え、アプリ経由でのキャッシュレス決済に対応。小銭の準備は不要です。スマホひとつで完結します。</p>
-        <a href="#" class="btn btn-line">対応決済を見る</a>
-        <div class="deco"></div>
-      </div>
-      <div class="app-card">
-        <span class="badge-type">MEMBER</span>
-        <h3>会員登録で<br>¥300プレゼント</h3>
-        <p class="desc">新規会員登録で300円分のランドリーマネーをプレゼント中。利用に応じてポイントもたまり、お得にご利用いただけます。</p>
-        <a href="#" class="btn btn-line">会員登録する</a>
-        <div class="deco"></div>
-      </div>
-    </div>
+    <div class="app-grid cms-loading" data-bind="delivery" style="min-height:320px;"></div>
   </div>
 </section>
 
@@ -949,6 +927,7 @@ function applyDelivery(items) {
   if (!items || !items.length) return;
   const wrap = document.querySelector('[data-bind="delivery"]');
   if (!wrap) return;
+  wrap.classList.remove('cms-loading');
   wrap.innerHTML = items.map(d => `
     <div class="app-card reveal">
       ${d.type ? '<span class="badge-type">' + esc(d.type) + '</span>' : ''}
@@ -1026,12 +1005,13 @@ fetch(GAS_URL)
     if (data.delivery) applyDelivery(data.delivery);
     if (data.faq)      applyFAQ(data.faq);
     if (data.cta)      applyCTA(data.cta);
+    // CMSデータがないセクションのシマーを解除（残留防止）
+    document.querySelectorAll('.cms-loading').forEach(el => el.classList.remove('cms-loading'));
   })
   .catch(err => {
     console.warn('CMS fetch error:', err);
-    // Remove blog skeleton so the static fallback shows
-    const wall = document.querySelector('#blog .wall');
-    if (wall) wall.classList.remove('cms-loading');
+    // Remove all skeletons so layout doesn't stay blank
+    document.querySelectorAll('.cms-loading').forEach(el => el.classList.remove('cms-loading'));
   });
 
 /* -------- Cursor Bubble Effect -------- */
