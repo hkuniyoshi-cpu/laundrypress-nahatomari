@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ | ランドリープレス那覇泊店</title>
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link rel="stylesheet" href="/shared.css">
+<style>
+/* ── ブログ詳細ページ固有スタイル ── */
+.post-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(32px,6vw,80px) clamp(16px,4vw,24px) 100px;
+}
+.post-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--teal-600, #0284c7);
+  text-decoration: none;
+  margin-bottom: 36px;
+  opacity: .8;
+  transition: opacity .2s;
+}
+.post-back-link:hover { opacity: 1; }
+.post-date {
+  font-size: 13px;
+  color: var(--gray-400, #94a3b8);
+  font-family: var(--font-num, monospace);
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+.post-title {
+  font-size: clamp(20px, 4vw, 34px);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--gray-900, #0f172a);
+  margin-bottom: 28px;
+}
+.post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 36px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.1);
+}
+.post-body {
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--gray-700, #334155);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.post-bottom {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--gray-200, #e2e8f0);
+  display: flex;
+  justify-content: center;
+}
+/* --- 状態表示 --- */
+.state-box { text-align: center; padding: 80px 0; }
+.state-box h2 { font-size: 22px; margin-bottom: 12px; }
+.state-box p  { color: var(--gray-500, #64748b); margin-bottom: 28px; }
+/* --- スケルトンローダー --- */
+.sk {
+  background: linear-gradient(90deg, #f0f4f8 25%, #dce6ef 50%, #f0f4f8 75%);
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+@keyframes sk-shimmer { to { background-position: -200% 0; } }
+.sk-date  { height: 14px; width: 110px; margin-bottom: 18px; }
+.sk-title { height: 36px; width: 76%; margin-bottom: 28px; }
+.sk-img   { height: 360px; width: 100%; margin-bottom: 36px; border-radius: 12px; }
+.sk-lines { display: flex; flex-direction: column; gap: 13px; }
+.sk-line  { height: 15px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav scrolled" id="siteNav">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="ランドリープレス那覇泊店">
+      <img src="/logo.png" alt="ランドリープレス那覇泊店" class="brand-logo-img">
+      <span class="brand-text">Laundrypress <small>NAHA TOMARI</small></span>
+    </a>
+    <div class="nav-cta">
+      <a href="tel:0989886629" class="nav-tel">
+        <strong>098-988-6629</strong>
+        <small>24時間営業中</small>
+      </a>
+      <a href="/#access" class="btn btn-primary">アクセス →</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:72px;">
+  <div class="post-wrap">
+    <a href="/#blog" class="post-back-link">← お知らせ一覧へ</a>
+
+    <!-- スケルトン（JS が記事を差し替えるまで表示） -->
+    <div id="post-area">
+      <div class="sk sk-date"></div>
+      <div class="sk sk-title"></div>
+      <div class="sk sk-img"></div>
+      <div class="sk-lines">
+        <div class="sk sk-line" style="width:96%"></div>
+        <div class="sk sk-line" style="width:88%"></div>
+        <div class="sk sk-line" style="width:93%"></div>
+        <div class="sk sk-line" style="width:72%"></div>
+        <div class="sk sk-line" style="width:85%"></div>
+        <div class="sk sk-line" style="width:58%"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p class="copyright">© 2025 Laundrypress Naha Tomari. All rights reserved.</p>
+      <p class="credit">Designed &amp; Developed by
+        <a href="https://search-mania.net/" target="_blank" rel="noopener">SearchMania Inc.</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ======================================================
+   ブログ詳細ページ — GAS API から動的レンダリング
+   Sheets の blog タブを編集すると即時反映される
+   ====================================================== */
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxq0wb7BTpATe8zK-3YQLk-A5PTjFoPcZqE7u88eH3knw3QcTmjBDZ69uhmSYyNTaA/exec';
+
+/* --- ユーティリティ --- */
+function esc(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function fmtDate(s) {
+  if (!s) return '';
+  const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? m[1] + '年' + m[2] + '月' + m[3] + '日' : String(s);
+}
+// Drive webViewLink → thumbnail URL（期限なし）
+function driveImg(url, sz) {
+  if (!url) return '';
+  if (url.includes('thumbnail?id=')) return url;      // 既に正しい形式
+  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  return m
+    ? 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=' + (sz || 'w1200')
+    : url;
+}
+
+/* --- ナビスクロール --- */
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 24);
+}, { passive: true });
+
+/* --- URL からスラッグを取得 ---
+   例: /blog/2026-05-28-0106/ → "2026-05-28-0106"        */
+const slug = window.location.pathname
+  .replace(/\/+$/, '')
+  .split('/')
+  .filter(Boolean)
+  .pop();
+
+// スラッグなし（/blog/ アクセス）→ メインページのブログセクションへ
+if (!slug || slug === 'blog') {
+  window.location.replace('/#blog');
+}
+
+/* --- GAS から記事を取得してレンダリング --- */
+fetch(GAS_URL)
+  .then(r => r.json())
+  .then(data => {
+    const posts = (data.blog || []).filter(b => b.body || b.title);
+
+    // URL フィールド or 日付プレフィックスでマッチ
+    const post = posts.find(b =>
+      (b.url  && b.url.includes(slug)) ||
+      (b.date && slug.startsWith(b.date))
+    );
+
+    const area = document.getElementById('post-area');
+
+    if (!post) {
+      area.innerHTML = `
+        <div class="state-box">
+          <h2>投稿が見つかりません</h2>
+          <p>URLが変更されたか、投稿が削除された可能性があります。</p>
+          <a href="/#blog" class="btn btn-primary">お知らせ一覧へ</a>
+        </div>`;
+      return;
+    }
+
+    /* ページタイトル更新 */
+    const displayTitle = post.title || '';
+    if (displayTitle) {
+      document.title = displayTitle.slice(0, 55) + ' | ランドリープレス那覇泊店';
+    }
+
+    const imgSrc = driveImg(post.image);
+
+    area.innerHTML =
+      (post.date ? '<p class="post-date">' + esc(fmtDate(post.date)) + '</p>' : '') +
+      (displayTitle ? '<h1 class="post-title">' + esc(displayTitle) + '</h1>' : '') +
+      (imgSrc
+        ? '<img class="post-image" src="' + esc(imgSrc) + '" alt="' + esc(displayTitle) + '" loading="eager">'
+        : '') +
+      '<div class="post-body">' + esc(post.body || '') + '</div>' +
+      '<div class="post-bottom">' +
+        '<a href="/#blog" class="btn btn-ghost">← お知らせ一覧へ戻る</a>' +
+      '</div>';
+  })
+  .catch(() => {
+    document.getElementById('post-area').innerHTML = `
+      <div class="state-box">
+        <h2>読み込みに失敗しました</h2>
+        <p>しばらくしてから再度お試しください。</p>
+        <a href="/" class="btn btn-primary">トップへ戻る</a>
+      </div>`;
+  });
+</script>
+
+</body>
+</html>
