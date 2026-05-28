@@ -557,19 +557,33 @@ section.sky     { background: var(--sky); }
 }
 .hero-badge .inner {
   font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 1.3;
-  letter-spacing: .12em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.hero-badge .badge-open {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: #fff;
+  line-height: 1;
 }
 .hero-badge .big {
   display: block;
   font-family: var(--font-num);
   font-weight: 800;
-  font-size: 26px;
+  font-size: 28px;
   letter-spacing: 0;
   color: var(--teal);
-  margin-top: 2px;
+  line-height: 1;
+}
+.hero-badge .badge-sub {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.65);
+  line-height: 1;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -578,7 +592,9 @@ section.sky     { background: var(--sky); }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { grid-template-rows: 180px 140px; }
   .hero-badge { width: 84px; height: 84px; right: 4px; top: -16px; }
-  .hero-badge .big { font-size: 20px; }
+  .hero-badge .badge-open { font-size: 12px; }
+  .hero-badge .big { font-size: 21px; }
+  .hero-badge .badge-sub { font-size: 8px; }
 }
 
 /* ============================================================
