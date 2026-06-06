@@ -168,21 +168,27 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 24);
 }, { passive: true });
 
+/* --- サイトURL --- */
+const SITE_URL = 'https://laundrypress-nahatomari.search-mania.net';
+
 /* --- URL からスラッグを取得 ---
-   例: /blog/2026-05-28-0106/ → "2026-05-28-0106"        */
-const slug = window.location.pathname
-  .replace(/\/+$/, '')
-  .split('/')
-  .filter(Boolean)
-  .pop();
+   ① クエリパラメータ方式（推奨）: /blog/?post=2026-05-28-0106
+   ② パスベース方式（フォールバック）: /blog/2026-05-28-0106/ */
+function getSlug() {
+  const params = new URLSearchParams(location.search);
+  if (params.get('post')) return params.get('post');
+  const s = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean).pop();
+  return (s && s !== 'blog') ? s : '';
+}
+const slug = getSlug();
 
 // スラッグなし（/blog/ アクセス）→ メインページのブログセクションへ
-if (!slug || slug === 'blog') {
+if (!slug) {
   window.location.replace('/#blog');
 }
 
-/* --- GAS から記事を取得してレンダリング --- */
-fetch(GAS_URL)
+/* --- GAS から記事を取得してレンダリング（全件モード） --- */
+fetch(GAS_URL + (GAS_URL.indexOf('?') >= 0 ? '&' : '?') + 'blog_all=1')
   .then(r => r.json())
   .then(data => {
     const posts = (data.blog || []).filter(b => b.body || b.title);
@@ -205,11 +211,44 @@ fetch(GAS_URL)
       return;
     }
 
-    /* ページタイトル更新 */
-    const displayTitle = post.title || '';
-    if (displayTitle) {
-      document.title = displayTitle.slice(0, 55) + ' | ランドリープレス那覇泊店';
-    }
+    /* ページタイトル・SEOメタ更新 */
+    const displayTitle = post.title || (post.body ? String(post.body).split(/[。\n]/)[0].trim() : '');
+    const seoTitle = (displayTitle || 'お知らせ').slice(0, 55);
+    const seoDesc = (post.body || seoTitle).slice(0, 120);
+    document.title = seoTitle + ' | ランドリープレス那覇泊店';
+
+    /* canonical / og:url（記事ごとに固有URL） */
+    (function() {
+      function um(attr, key, val) {
+        let el = document.querySelector('meta[' + attr + '="' + key + '"]');
+        if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+        el.setAttribute('content', val);
+      }
+      um('property', 'og:title', seoTitle);
+      um('property', 'og:description', seoDesc);
+      um('property', 'og:url', SITE_URL + location.pathname + location.search);
+      um('name', 'twitter:title', seoTitle);
+      um('name', 'twitter:description', seoDesc);
+      let can = document.querySelector('link[rel="canonical"]');
+      if (!can) { can = document.createElement('link'); can.setAttribute('rel', 'canonical'); document.head.appendChild(can); }
+      can.setAttribute('href', SITE_URL + location.pathname + location.search);
+    })();
+
+    /* BlogPosting 構造化データ */
+    (function() {
+      var ex = document.getElementById('blog-jsonld');
+      if (ex) ex.remove();
+      var sd = document.createElement('script');
+      sd.id = 'blog-jsonld'; sd.type = 'application/ld+json';
+      sd.textContent = JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'BlogPosting',
+        'headline': seoTitle, 'description': seoDesc,
+        'datePublished': post.date || '', 'image': driveImg(post.image) || '',
+        'url': SITE_URL + location.pathname + location.search,
+        'publisher': { '@type': 'Organization', 'name': 'ランドリープレス那覇泊店', 'url': SITE_URL }
+      });
+      document.head.appendChild(sd);
+    })();
 
     const imgSrc = driveImg(post.image);
 
