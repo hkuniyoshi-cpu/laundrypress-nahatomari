@@ -1693,3 +1693,92 @@ dialog.legal-modal::backdrop {
     letter-spacing: .10em;
   }
 }
+
+/* ============================================================
+   PAGE LOADER
+   ============================================================ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: var(--ink);
+  transition: opacity .55s ease, visibility .55s ease;
+}
+#page-loader.loader-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-drum {
+  position: relative;
+  width: 92px;
+  height: 92px;
+}
+.loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--teal);
+  border-right-color: rgba(14,165,233,.22);
+  animation: spin .85s linear infinite;
+}
+.loader-ring::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(14,165,233,.12);
+}
+.loader-center {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: rgba(14,165,233,.05);
+  border: 1px solid rgba(14,165,233,.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loader-center .lc-num {
+  font-family: var(--font-num);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--teal);
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.loader-center .lc-h {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .06em;
+}
+.loader-label {
+  text-align: center;
+}
+.loader-label .ll-name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.9);
+  text-transform: uppercase;
+}
+.loader-label .ll-sub {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: .3em;
+  color: var(--teal);
+  margin-top: 5px;
+  text-transform: uppercase;
+}
