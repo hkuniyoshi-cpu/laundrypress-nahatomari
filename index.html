@@ -66,6 +66,21 @@
 
 <body>
 
+<!-- ============ PAGE LOADER ============ -->
+<div id="page-loader" role="status" aria-label="読み込み中">
+  <div class="loader-drum">
+    <div class="loader-ring"></div>
+    <div class="loader-center">
+      <span class="lc-num">24</span>
+      <span class="lc-h">h</span>
+    </div>
+  </div>
+  <div class="loader-label">
+    <p class="ll-name">Laundrypress</p>
+    <small class="ll-sub">Naha Tomari</small>
+  </div>
+</div>
+
 <!-- ============ NAV ============ -->
 <header class="nav" id="siteNav">
   <div class="nav-inner">
@@ -273,9 +288,10 @@
     <div class="access-grid">
       <div class="access-map" data-bind="map">
         <iframe
-          src="https://www.google.com/maps?q=沖縄県那覇市泊2-22-10&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.138751282722!2d127.68752860000001!3d26.224680799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e569d5a784e9fd:0x1c411626d8507855!2z44Op44Oz44OJ44Oq44O844OX44Os44K56YKj6KaH5rOK5bqX!5e0!3m2!1sja!2sjp!4v1780736523644!5m2!1sja!2sjp"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
           title="ランドリープレス那覇泊店 地図"></iframe>
       </div>
 
@@ -379,8 +395,8 @@
         <div class="answer"><p>不要です。機械内に洗剤が自動投入されます。プロ用専用洗剤としゃぼん玉石鹸の2種類からお選びいただけます。お肌や香りのお好みでお選びください。</p></div>
       </details>
       <details class="faq-item">
-        <summary>羽毛布団は洗えますか？</summary>
-        <div class="answer"><p>はい、大型洗濯乾燥機で羽毛布団・毛布・カーペット・カーテンなど、大物の丸洗いが可能です。洗濯から乾燥まで一気に仕上がります。一部洗えない素材もありますので、ご不安な場合は事前にお問い合わせください。</p></div>
+        <summary>布団・毛布は洗えますか？</summary>
+        <div class="answer"><p>はい、布団・毛布は全洗濯機でお洗濯いただけます。敷布団についてはL機のみ対応しています。キルティング加工の敷き布団も丸洗いが可能ですので、洗濯機の案内を見ながらお気軽にご利用ください。</p></div>
       </details>
       <details class="faq-item">
         <summary>アプリはどこでダウンロードできますか？</summary>
@@ -1044,6 +1060,27 @@ fetch(GAS_URL)
     document.body.appendChild(el);
     el.addEventListener('animationend', () => el.remove(), { once: true });
   });
+})();
+
+/* ============================================================
+   PAGE LOADER — hide after content + CMS load
+   ============================================================ */
+(function() {
+  var loader = document.getElementById('page-loader');
+  if (!loader) return;
+  function hideLoader() {
+    loader.classList.add('loader-done');
+    loader.addEventListener('transitionend', function() {
+      loader.style.display = 'none';
+    }, { once: true });
+  }
+  if (document.readyState === 'complete') {
+    setTimeout(hideLoader, 300);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(hideLoader, 300);
+    });
+  }
 })();
 </script>
 
