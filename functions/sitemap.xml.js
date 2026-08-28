@@ -12,7 +12,7 @@ const STATIC = [
 
 export async function onRequest() {
   try {
-    const upstream = await fetch(GAS_URL + '?blog_all=1', {
+    const upstream = await fetch(GAS_URL + '?blog_all=1&v=1787914455', {
       redirect: 'follow',
       cf: { cacheTtl: 3600, cacheEverything: true }
     });
